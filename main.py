@@ -68,7 +68,7 @@ spec_oscIO_res = phys.energy_resolution(energies, spec_oscIO)
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6), sharey=True)
 
 # Graphique 1 : spectres théoriques 
-#ax1.plot(energies, spec_no_osc, 'gray', label="Sans Oscillation", alpha=0.4, linestyle='--')
+ax1.plot(energies, spec_no_osc, 'gray', label="Sans Oscillation", alpha=0.4, linestyle='--')
 ax1.plot(energies, spec_oscNO, 'red', label="NO (Théorique)")
 ax1.plot(energies, spec_oscIO, 'blue', label="IO (Théorique)")
 
@@ -81,7 +81,7 @@ ax1.set_xlim(1.8, 8.5)
 ax1.set_ylim(bottom=0)
 
 # Graphique 2 : spectres réels (avec résolution) 
-#ax2.plot(energies, spec_no_osc, 'gray', label="Sans Oscillation", alpha=0.4, linestyle='--')
+ax2.plot(energies, spec_no_osc, 'gray', label="Sans Oscillation", alpha=0.4, linestyle='--')
 ax2.plot(energies, spec_oscNO_res, 'red', label="Normal Ordering ")
 ax2.plot(energies, spec_oscIO_res, 'blue',  label="Inverted Ordering ")
 
@@ -99,4 +99,5 @@ plt.show()
 total_evts = np.sum(spec_oscNO_res)
 print(f"Nombre total d'événements (NO) sur {phys.PhysicsConstants.LIVE_TIME_YEARS} ans : {total_evts:.0f}")
 print(f"Soit environ {total_evts/(phys.PhysicsConstants.LIVE_TIME_YEARS*phys.PhysicsConstants.DAYS_PER_YEAR):.2f} événements / jour.")
+
 
